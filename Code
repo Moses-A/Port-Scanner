@@ -1,0 +1,30 @@
+#!/usr/bin/env python2
+import socket
+
+port_start = 0
+port_stop = 65535
+timeout = 0.1
+host = "127.0.0.1"
+# For Each Port between Start & Stop:
+#       Try to Connect to Host: Port timeout if no answer
+for port in range(port_start, port_stop + 1):
+    try:
+        sock = socket.create_connection((host, port), timeout)
+    except socket.error:
+        pass
+#        print ("Connection Failed: Port {}".format(port))
+    except socket.timeout:
+        print ("Connection Timed Out: Port {}".format(port))
+    else:
+        try:
+            service = socket.getservbyport(port, 'tcp')
+        except:
+            service = 'unknown'
+        print ("Connection Successful: Port {} ({})".format(port, service))
+        sock.close()
+#    if successful
+#        print host: port success
+#   else if connection fail
+#        print host: port fail
+#   else if timeout
+#        print host: port timeout
