@@ -1,10 +1,11 @@
 #!/usr/bin/env python2
 # Author is Moses Arocha
 
-import socket
 import optparse
+import socket
 import sys
 import os
+
 
 # For Each Port between Start & Stop:
 #       Try to Connect to Host: Port timeout if no answer
