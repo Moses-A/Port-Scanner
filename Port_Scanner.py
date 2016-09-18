@@ -52,5 +52,6 @@ def main():
 	host = options.host
     portScan(port_start, port_stop, timeout, host)
 
+
 if __name__ == '__main__':
     main()
